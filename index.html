@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Sensor Crop Phenotyping Platform</title>
+  <meta name="description" content="A 34-second deterministic explainer of an example multi-sensor crop phenotyping pass. Observable traits only. Uncertainty is retained. Not a yield guarantee and not a genotype readout.">
+  <link rel="canonical" href="https://mizcausevic-dev.github.io/multi-sensor-crop-phenotyping/">
+  <style>
+    @font-face { font-family: "Space Grotesk"; src: url("https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@5.2.8/latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Space Grotesk"; src: url("https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@5.2.8/latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+    @font-face { font-family: "Space Grotesk"; src: url("https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@5.2.8/latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+    @font-face { font-family: "JetBrains Mono"; src: url("https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@5.2.6/latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "JetBrains Mono"; src: url("https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@5.2.6/latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+    :root { --bg:#0B1019; --panel:#151B27; --struct:#344257; --cyan:#00E5FF; --gold:#FFD166; --violet:#9D4EDD; --bone:#E6EDF5; --mute:#93A0B5; --sans:"Space Grotesk", Inter, "Noto Sans", sans-serif; --mono:"JetBrains Mono", ui-monospace, monospace; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--bone); font-family:var(--sans); line-height:1.45; }
+    header, main { width:min(1280px, calc(100% - 32px)); margin:0 auto; }
+    header { padding:28px 0 12px; }
+    .kicker { font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--mute); margin:0 0 8px; }
+    h1 { font-size:clamp(32px,4vw,52px); line-height:1.02; font-weight:600; margin:0 0 10px; }
+    .lede { max-width:68ch; color:var(--mute); margin:0; font-size:18px; }
+    .stage-wrap { margin-top:18px; background:#090D14; border:1px solid var(--struct); border-radius:12px; overflow:hidden; }
+    canvas { display:block; width:100%; height:auto; background:var(--bg); }
+    #caption { min-height:4.6em; margin:0; padding:14px 16px 4px; font-size:16px; }
+    #controls { padding:8px 16px 16px; }
+    .transport, .chapters, .meta-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .chapters, .meta-row { margin-top:8px; }
+    button { font-family:var(--sans); font-size:15px; color:var(--bone); background:var(--panel); border:1px solid var(--struct); border-radius:8px; padding:8px 12px; cursor:pointer; }
+    button[aria-current="true"] { border-color:var(--cyan); color:var(--cyan); }
+    #play { background:var(--gold); color:#1A1406; border-color:var(--gold); font-weight:600; }
+    input[type="range"] { width:min(100%,420px); accent-color:var(--cyan); }
+    #clock, #testStatus, #reduceNote { font-family:var(--mono); font-size:12px; color:var(--mute); }
+    #testStatus[data-ok="no"] { color:#FFB4A8; }
+    #reduceNote { color:var(--gold); }
+    .safeguards { padding:8px 0 48px; }
+    h2 { font-size:28px; margin:28px 0 8px; }
+    h3 { font-size:18px; margin:22px 0 6px; }
+    p, li { max-width:74ch; }
+    a { color:var(--cyan); }
+    .legend { display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:12px 0; list-style:none; }
+    .legend li { font-family:var(--mono); font-size:12px; border:1px solid var(--struct); border-radius:99px; padding:6px 10px; }
+    .swatch { display:inline-block; width:8px; height:8px; border-radius:99px; margin-right:6px; }
+    table { border-collapse:collapse; width:min(720px,100%); margin:12px 0 18px; }
+    th, td { border-bottom:1px solid var(--struct); text-align:left; padding:8px 10px; vertical-align:top; font-size:15px; }
+    th { font-family:var(--mono); font-size:12px; color:var(--mute); font-weight:500; }
+    code { font-family:var(--mono); font-size:.92em; }
+    :focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#controls" style="position:absolute;left:12px;top:-40px;background:var(--cyan);color:#071016;padding:8px 12px;">Skip to controls</a>
+  <header>
+    <p class="kicker">AGRICULTURAL TECHNOLOGY · 34 SECONDS · 1,020 FRAMES</p>
+    <h1>Multi-Sensor Crop Phenotyping Platform</h1>
+    <p class="lede">A frame-locked look at an example research pass: a planned route, three separate sensor streams, a canopy that keeps its gaps, visible pods set beside a human reference, and a compressed visit history. Phenotyping here estimates observable traits. It does not read genotype, and it does not guarantee a yield.</p>
+  </header>
+  <main>
+    <div class="stage-wrap">
+      <canvas id="stage" width="1920" height="1080" role="img" aria-label="Animated technical explainer of an example multi-sensor crop phenotyping platform. The caption under the picture carries the same narration."></canvas>
+      <p id="caption" aria-live="polite"></p>
+      <div id="controls">
+        <div class="transport">
+          <button id="play" type="button">Play</button>
+          <button id="restart" type="button">Restart</button>
+          <button id="stepBack" type="button">Back one frame</button>
+          <button id="stepFwd" type="button">Forward one frame</button>
+          <label for="scrub">Frame</label>
+          <input id="scrub" type="range" min="0" max="1019" value="0" step="1">
+        </div>
+        <div class="chapters">
+          <button type="button" data-chapter="0">0s Route</button>
+          <button type="button" data-chapter="150">5s Streams</button>
+          <button type="button" data-chapter="300">10s Canopy</button>
+          <button type="button" data-chapter="510">17s Traits</button>
+          <button type="button" data-chapter="750">25s History</button>
+          <button type="button" data-chapter="960">32s Hold</button>
+        </div>
+        <div class="meta-row">
+          <span id="clock">0.00 / 34.00 s</span>
+          <span id="testStatus"></span>
+        </div>
+        <p id="reduceNote" hidden>Reduced motion is on. The film stays paused until you press Play. Chapter buttons jump to a still.</p>
+      </div>
+    </div>
+    <section class="safeguards" id="safeguards">
+      <h2>Safeguards and how to read this</h2>
+      <ul class="legend">
+        <li><span class="swatch" style="background:#00E5FF"></span>Cyan: route, clock, and signal path</li>
+        <li><span class="swatch" style="background:#FFD166"></span>Gold: stored energy, actuation, heat</li>
+        <li><span class="swatch" style="background:#9D4EDD"></span>Violet: sensing, occlusion, trait state</li>
+        <li><span class="swatch" style="background:#344257"></span>Slate: structure and hardware housings</li>
+      </ul>
+      <p>Colors are explanatory overlays. A violet ring on a housing means this is a sensor, not that the housing emits light. Gold on a wheel hub means actuation. Plant tissue stays a muted green or tan.</p>
+      <h3>What is hardware, what is a diagram</h3>
+      <p>Plates are tagged. HARDWARE is the vehicle, boom, calibration board, and crop. SCHEMATIC is a sectional explanation, not a physical disassembly. MATH OVERLAY is the coverage ratio, the comparison table, and the visit charts. Those numbers are illustrative. They are not measurements from a trial.</p>
+      <h3>Labels you should see when they apply</h3>
+      <ul>
+        <li><strong>Enlarged scale.</strong> The canopy is magnified relative to the field view.</li>
+        <li><strong>Slow motion.</strong> The canopy scan is slowed so occlusion stays readable. It is not a field speed.</li>
+        <li><strong>Time compression.</strong> Five example visits stand in for a longer growing period.</li>
+        <li><strong>Hold.</strong> From frame 960 through 1019 the picture is repeated.</li>
+      </ul>
+      <h3>Claims this film does not make</h3>
+      <ul>
+        <li>No genotype or breeding-value readout.</li>
+        <li>No yield prediction.</li>
+        <li>No accuracy percentage and no universal model.</li>
+        <li>No camera, GNSS, or vehicle specification.</li>
+      </ul>
+      <h3>Worked example</h3>
+      <p>The coverage grid is 100 cells: 57 vegetation, 23 soil, 20 unobserved. Coverage is 57/80 = 0.71 on observed cells. The five-plant table totals 26 sensor-visible pods and 33 human-reference pods. The difference is 7, and each of those 7 is an unobserved pod. The full table and the source boundary are in the film and in safeguards-Cursor.md.</p>
+      <p>Mechanism source: USDA Agricultural Research Service project <a href="https://www.ars.usda.gov/research/project/?accnNo=448131">448131</a>. Conceptual, source-informed working brief. Not a certified engineering design.</p>
+    </section>
+  </main>
+  <script src="explainer.js"></script>
+</body>
+</html>
