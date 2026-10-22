@@ -8,7 +8,7 @@ Deterministic 34-second explainer of an example multi-sensor crop phenotyping pa
 
 Live preview, once Pages is serving the `pages` branch: https://mizcausevic-dev.github.io/multi-sensor-crop-phenotyping/
 
-Open `index.html`. The film is 1,020 frames at 30 fps, indexed 0-1019. Fonts are inlined so the page does not depend on a separate font request.
+Open `index.html`. The film is 1,020 frames at 30 fps, indexed 0-1019. Display fonts load from the Fontsource CDN, with system fonts as the fallback. The SIL license is in `fonts/OFL-1.1.txt`.
 
 - Space: play or pause
 - Left and right arrows: one frame
@@ -38,6 +38,6 @@ The Medium essay is `medium-article-Cursor.md`.
 
 - `index.html` is the player and the safeguards in selectable text.
 - `explainer.js` draws each frame from the frame index only.
-- Fonts are inlined in `index.html`. The SIL Open Font License is in `fonts/OFL-1.1.txt`.
+- Display fonts load from the Fontsource CDN. The SIL Open Font License text is in `fonts/OFL-1.1.txt`.
 
 No build step. GitHub Pages serves this directory from the `pages` branch.
